@@ -50,6 +50,8 @@ public class NoteBlockSongPlayer extends SongPlayer {
 
             pk.case1 = note.getInstrument();
             pk.case2 = (int) NotePitch.getPitch(note.getKey() - 33);
+
+            p.dataPacket(pk);
         }
     }
 }
