@@ -1,4 +1,4 @@
-package com.xxmicloxx.NoteBlockAPI;
+package com.creeperface.NoteBlockAPI;
 
 import java.util.Arrays;
 

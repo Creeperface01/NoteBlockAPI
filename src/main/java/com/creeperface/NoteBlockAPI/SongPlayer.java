@@ -1,7 +1,7 @@
-package com.xxmicloxx.NoteBlockAPI;
+package com.creeperface.NoteBlockAPI;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import cn.nukkit.Player;
+import cn.nukkit.Server;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -90,15 +90,15 @@ public abstract class SongPlayer {
                             if (tick > song.getLength()) {
                                 playing = false;
                                 tick = -1;
-                                SongEndEvent event = new SongEndEvent(SongPlayer.this);
-                                Bukkit.getPluginManager().callEvent(event);
+                                SongEndEvent event = new SongEndEvent(NoteBlockPlayerMain.plugin, SongPlayer.this);
+                                Server.getInstance().getPluginManager().callEvent(event);
                                 if (autoDestroy) {
                                     destroy();
                                     return;
                                 }
                             }
                             for (String s : playerList) {
-                                Player p = Bukkit.getPlayerExact(s);
+                                Player p =  Server.getInstance().getPlayerExact(s);
                                 if (p == null) {
                                     // offline...
                                     continue;
@@ -158,8 +158,8 @@ public abstract class SongPlayer {
 
     public void destroy() {
         synchronized (this) {
-            SongDestroyingEvent event = new SongDestroyingEvent(this);
-            Bukkit.getPluginManager().callEvent(event);
+            SongDestroyingEvent event = new SongDestroyingEvent(NoteBlockPlayerMain.plugin, this);
+            Server.getInstance().getPluginManager().callEvent(event);
             //Bukkit.getScheduler().cancelTask(threadId);
             if (event.isCancelled()) {
                 return;
@@ -177,8 +177,8 @@ public abstract class SongPlayer {
     public void setPlaying(boolean playing) {
         this.playing = playing;
         if (!playing) {
-            SongStoppedEvent event = new SongStoppedEvent(this);
-            Bukkit.getPluginManager().callEvent(event);
+            SongStoppedEvent event = new SongStoppedEvent(NoteBlockPlayerMain.plugin, this);
+            Server.getInstance().getPluginManager().callEvent(event);
         }
     }
 
@@ -201,8 +201,8 @@ public abstract class SongPlayer {
             songs.remove(this);
             NoteBlockPlayerMain.plugin.playingSongs.put(p.getName(), songs);
             if (playerList.isEmpty() && autoDestroy) {
-                SongEndEvent event = new SongEndEvent(this);
-                Bukkit.getPluginManager().callEvent(event);
+                SongEndEvent event = new SongEndEvent(NoteBlockPlayerMain.plugin, this);
+                Server.getInstance().getPluginManager().callEvent(event);
                 destroy();
             }
         }

@@ -1,7 +1,7 @@
 name: NoteBlockAPI
 
-main: com.xxmicloxx.NoteBlockAPI.NoteBlockPlayerMain
-version: 1.2.0
-
-description: a developer interface to play nbs-files ingame
-authors: [xxmicloxx, michidk]
+main: com.creeperface.NoteBlockAPI.NoteBlockPlayerMain
+version: 1.0.0
+api: ["1.0.0"]
+description: a developer interface to play nbs-files ingame ported from spigot
+authors: CreeperFace

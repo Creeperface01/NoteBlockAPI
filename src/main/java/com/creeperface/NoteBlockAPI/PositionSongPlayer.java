@@ -1,7 +1,7 @@
-package com.xxmicloxx.NoteBlockAPI;
+/*package com.creeperface.NoteBlockAPI;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
+import cn.nukkit.Player;
+import cn.nukkit.level.Location;
 
 public class PositionSongPlayer extends SongPlayer {
 
@@ -21,7 +21,7 @@ public class PositionSongPlayer extends SongPlayer {
 
     @Override
     public void playTick(Player p, int tick) {
-        if (!p.getWorld().getName().equals(targetLocation.getWorld().getName())) {
+        if (p.getLevel().getId() != targetLocation.getLevel().getId()) {
             // not in same world
             return;
         }
@@ -38,4 +38,4 @@ public class PositionSongPlayer extends SongPlayer {
                     NotePitch.getPitch(note.getKey() - 33));
         }
     }
-}
+}*/

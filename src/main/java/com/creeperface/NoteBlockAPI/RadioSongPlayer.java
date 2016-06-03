@@ -1,6 +1,7 @@
-package com.xxmicloxx.NoteBlockAPI;
+/*package com.creeperface.NoteBlockAPI;
 
-import org.bukkit.entity.Player;
+import cn.nukkit.Player;
+import cn.nukkit.network.protocol.BlockEventPacket;
 
 public class RadioSongPlayer extends SongPlayer {
 
@@ -14,13 +15,17 @@ public class RadioSongPlayer extends SongPlayer {
 
         for (Layer l : song.getLayerHashMap().values()) {
             Note note = l.getNote(tick);
+
             if (note == null) {
                 continue;
             }
+
+            p.getLevel().addSound();
+
             p.playSound(p.getEyeLocation(),
                     Instrument.getInstrument(note.getInstrument()),
                     (l.getVolume() * (int) volume * (int) playerVolume) / 1000000f,
                     NotePitch.getPitch(note.getKey() - 33));
         }
     }
-}
+}*/

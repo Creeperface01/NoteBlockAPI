@@ -1,4 +1,4 @@
-package com.xxmicloxx.NoteBlockAPI;
+package com.creeperface.NoteBlockAPI;
 
 public enum NotePitch {
 

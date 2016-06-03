@@ -1,13 +1,13 @@
-package com.xxmicloxx.NoteBlockAPI;
+package com.creeperface.NoteBlockAPI;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
+import cn.nukkit.Player;
+import cn.nukkit.Server;
+import cn.nukkit.plugin.PluginBase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class NoteBlockPlayerMain extends JavaPlugin {
+public class NoteBlockPlayerMain extends PluginBase {
 
     public static NoteBlockPlayerMain plugin;
     public HashMap<String, ArrayList<SongPlayer>> playingSongs = new HashMap<String, ArrayList<SongPlayer>>();
@@ -46,6 +46,6 @@ public class NoteBlockPlayerMain extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        Bukkit.getScheduler().cancelTasks(this);
+        Server.getInstance().getScheduler().cancelAllTasks();
     }
 }
