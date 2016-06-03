@@ -1,6 +1,4 @@
 NoteBlockAPI
 ============
 
-See http://dev.bukkit.org/bukkit-plugins/noteblockapi/ for more info about NoteBlockAPI
-
-See "LICENSE" for license :)
+Original NoteBlockAPI for spigot:  http://dev.bukkit.org/bukkit-plugins/noteblockapi/
